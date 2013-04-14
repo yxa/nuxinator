@@ -1,10 +1,7 @@
-var chai      = require('chai'),
+var expect    = require('chai').expect,
     parser    = require('../lib/parser');
 
 describe('Parser',function() {
-
-  var expect = chai.expect;
-
   it('should throw error on invalid config file',function(done){
     parser.processConfig('test/assets/invalid-project.json',function(error, config){
       expect(error).to.be.an.instanceof(Error);

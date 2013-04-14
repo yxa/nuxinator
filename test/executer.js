@@ -1,9 +1,7 @@
-var chai      = require('chai'),
+var expect    = require('chai').expect
     executer  = require('../lib/executer');
 
 describe('Executer',function(){
-
-  var expect = chai.expect;
 
   describe('Sending Keys',function(){
     it('should format the keys command correctly',function(done){

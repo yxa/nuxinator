@@ -1,4 +1,4 @@
-var chai      = require('chai'),
+var expect    = require('chai').expect,
     fs        = require('fs-extra'),
     async     = require('async'),
     path      = require('path'),
@@ -9,7 +9,6 @@ describe('Nuxinator', function(){
   var rootDir = './test/configs/';
   var samples = [rootDir + 'sample1.json', rootDir + 'sample2.json'];
   var nuxinator = new Nuxinator();
-  var expect = chai.expect;
 
   var JSONBaseName = function(file, callback) {
     callback(path.basename(file, '.json'));

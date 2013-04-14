@@ -1,4 +1,4 @@
-# nuxinator (not finished!)
+# nuxinator (in the works)
 
 ## TODO
 
