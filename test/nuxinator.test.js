@@ -55,9 +55,7 @@ describe('Nuxinator',function(){
   describe('copy', function(){});
 
   describe('Delete', function(){
-
     var sample = './test/configFiles/sample3.json';
-
     before(function(done){
       fs.createFile(sample, function(error){
         if(!error) done();
@@ -109,5 +107,4 @@ describe('Nuxinator',function(){
       });
     });
   });
-
 });

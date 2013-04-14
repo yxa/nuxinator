@@ -1,9 +1,6 @@
 var chai      = require('chai'),
     fs        = require('fs-extra'),
-    sinon     = require('sinon'),
-    doctor    = require('../lib/doctor'),
-    child_process      = require('child_process');
-
+    doctor    = require('../lib/doctor');
 
 var expect = chai.expect;
 
@@ -16,7 +13,6 @@ describe('Doctor Nux',function(){
         done();
       });
   });
-
 
   it('should true if editor variable exists',function(done) {
       process.env.EDITOR = 'vi';
@@ -33,7 +29,6 @@ describe('Doctor Nux',function(){
         done();
       });
   });
-
 
   it('should true if shell variable exists',function(done) {
       process.env.SHELL = '/usr/local/bin/zsh';
