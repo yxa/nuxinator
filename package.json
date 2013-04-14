@@ -5,8 +5,7 @@
   "dependencies": {
     "async": "latest",
     "q": "latest",
-    "fs-extra": "latest",
-    "findit": "~0.1.2",
+    "fs-extra": "latest"
     "underscore": "~1.4.4",
     "commander": "~1.1.1",
     "editor": "0.0.4",
@@ -14,17 +13,16 @@
   },
   "devDependencies": {
     "mocha": "latest",
-    "chai": "latest",
-    "sinon": "~1.6.0"
+    "chai": "latest"
   },
   "description": "script tmux sessions",
   "scripts": {
-    "test": "node_modules/mocha/bin/mocha -R nyan"
+    "test": "node_modules/mocha/bin/mocha -R spec"
   },
   "bin": {
     "mac10": "./bin/nux"
   },
-  "repository": "",
+  "repository": "https://github.com/yxa/nuxinator.git",
   "author": "torbjorn.josefsson@gmail.com",
   "license": "MIT"
 }
