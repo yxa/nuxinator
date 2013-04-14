@@ -1,0 +1,14 @@
+{
+    "project_name": "test",
+    "project_root": "/tmp/test",
+    "windows": {
+        "window1": {
+            "panes":  [{}, {}, {}],
+            "layout": "main-vertical"
+        },
+        "window2": {
+            "panes":  [{}, {}, {}],
+            "layout": "main-vertical"
+        }
+    }
+}

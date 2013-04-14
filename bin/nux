@@ -1,0 +1,104 @@
+#!/usr/bin/env node
+
+var program   = require('commander'),
+    version   = require('../package.json').version,
+    Nuxinator = require('../lib/nuxinator'),
+    editor    = require('editor'),
+    doctor    = require('../lib/doctor');
+
+var nuxinator = new Nuxinator(); 
+var rootDir = nuxinator.getRootDir();
+
+program.version(version);
+
+program
+  .command('start <project_name')
+  .description('start a tmux session using projects nuxinator config')
+  .action(function(project_name) {
+    nuxinator.start(rootDir + project_name + '.json', function(status) {
+      if(!status) {
+        console.log("project " + project_name + " doesn't exists");
+      } else {
+        console.log("starting " + project_name);
+      }
+    });
+  });
+
+program
+  .command('open <project_name')
+  .description('open project file in default editor')
+  .action(function(project_name){
+    nuxinator.open(rootDir + project_name, function(status){
+     console.log(status); 
+    })
+  });
+
+program
+  .command('create <project_name>')
+  .description('creates a new project from template file')
+  .action(function(project_name){
+    nuxinator.createRootDir(rootDir, function(status){
+      if(status) {
+        nuxinator.create(rootDir + project_name, function(status){
+          if(status) {
+            console.log("created config file successfully");
+          } else {
+            console.log("could not create config file");  
+          }
+        });
+      } else {
+        console.log("could not create root folder"); 
+      }
+    });  
+  });
+
+
+program
+  .command('list')
+  .description('list all existing projects')
+  .action(function() {
+    nuxinator.list(rootDir, function(err, result){
+      if(result) {
+        console.log("nuxinator configs:");
+        result.forEach(function(config){
+          console.log("   %s",config);
+        });
+      }
+    });
+  });
+
+
+program
+  .command('implode')
+  .description('delets all existing projects')
+  .action(function() {
+    nuxinator.implode(rootDir, function(status){
+      if(status) {
+        console.log("nuxinator imploded your config files");
+      } else {
+        console.log("nuxinator could NOT implode your config files");
+      } 
+    });
+  });
+
+program
+  .command('delete <project_name>')
+  .description('deletes the project called project_name')
+  .action(function(project_name){
+    nuxinator.erase(rootDir + project_name + '.json', function(status){
+      if(status) {
+        console.log("nuxinator deleted your config file: %s", project_name);
+      } else { 
+        console.log("nuxinator could not deleted your config file: %s", project_name);
+      }  
+    });
+  });
+
+program
+  .command('doctor')
+  .description('run the diagnose')
+  .action(function(){
+    doctor.diagnose();
+  });
+
+program.parse(process.argv);

@@ -8,7 +8,9 @@
     "fs-extra": "latest",
     "findit": "~0.1.2",
     "underscore": "~1.4.4",
-    "commander": "~1.1.1"
+    "commander": "~1.1.1",
+    "editor": "0.0.4",
+    "shelljs": "~0.1.2"
   },
   "devDependencies": {
     "mocha": "latest",
@@ -19,8 +21,8 @@
   "scripts": {
     "test": "node_modules/mocha/bin/mocha -R nyan"
   },
-  "bin":          {
-    "mac10":      "./bin/nux"
+  "bin": {
+    "mac10": "./bin/nux"
   },
   "repository": "",
   "author": "torbjorn.josefsson@gmail.com",

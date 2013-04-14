@@ -1,0 +1,22 @@
+{
+  "project_name": "",
+  "project_root": "",
+  "windows": {
+    "window1": {
+      "panes": [
+        {},
+        {},
+        {}
+      ],
+      "layout": "main-vertical"
+    },
+    "window2": {
+      "panes": [
+        {},
+        {},
+        {}
+      ],
+      "layout": "main-vertical"
+    }
+  }
+}
