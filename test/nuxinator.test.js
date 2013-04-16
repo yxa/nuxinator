@@ -6,13 +6,18 @@ var expect    = require('chai').expect,
 
 describe('Nuxinator', function(){
 
-  var rootDir = './test/configs/';
-  var samples = [rootDir + 'sample1.json', rootDir + 'sample2.json'];
-  var nuxinator = new Nuxinator();
+  var rootDir, samples, nuxinator, JSONBaseName;
 
-  var JSONBaseName = function(file, callback) {
-    callback(path.basename(file, '.json'));
-  };
+  before(function(done){
+    rootDir = './test/configs/';
+    samples = [rootDir + 'sample1.json', rootDir + 'sample2.json'];
+    nuxinator = new Nuxinator();
+
+    JSONBaseName = function(file, callback) {
+      callback(path.basename(file, '.json'));
+    };
+    done();
+  });
 
   describe('New', function() {
     var config = 'test-config.json';
